@@ -8,6 +8,6 @@ You can modify folders and albums, download content in your gallery or upload
 to Joomeo. 
 This application is not an official application.
 
-![image](images/screenshot1.png){:height="480px" width="270px"}
-![image](images/screenshot2.png){:height="480px" width="270px"}
+![image](images/screenshot1.png){height="480px" width="270px"}
+![image](images/screenshot2.png){height="480px" width="270px"}
 
