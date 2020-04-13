@@ -7,3 +7,6 @@ your content or content from your Joomeo network.
 You can modify folders and albums, download content in your gallery or upload
 to Joomeo. 
 This application is not an official application.
+
+![image](images/screenshot1.png)
+![image](images/screenshot2.png)
