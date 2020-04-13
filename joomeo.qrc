@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/comment.png</file>
+        <file>icons/comments.png</file>
+        <file>icons/contact.png</file>
+        <file>icons/folder.png</file>
+        <file>icons/rating.png</file>
+        <file>icons/rating0.png</file>
+        <file>icons/rating1.png</file>
+        <file>icons/rating2.png</file>
+        <file>icons/rating3.png</file>
+        <file>icons/rating4.png</file>
+        <file>icons/rating5.png</file>
+        <file>images/coverbg.png</file>
+    </qresource>
+</RCC>

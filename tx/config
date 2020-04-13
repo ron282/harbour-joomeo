@@ -1,0 +1,7 @@
+[main]
+host = https://www.transifex.com
+
+[harbour-joomeo.harbour-joomeo]
+file_filter = translations/harbour-joomeo_<lang>.ts
+source_lang = en
+type = QT
