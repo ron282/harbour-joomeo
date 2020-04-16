@@ -9,6 +9,7 @@ Item {
 
     property alias toolbar: toolbar
     property alias additionalActions: additionalActionsLoader.sourceComponent
+    property alias commentsVisible: commentsButton.visible
     property alias detailsButton: detailsButton
     property alias deletingAllowed: deleteButton.visible
     readonly property bool allowed: isImage
@@ -69,6 +70,14 @@ Item {
             right: toolbar.left
         }
     }
+
+    IconButton {
+        id: commentsButton
+        icon.source: "image://theme/icon-m-activity-messaging"
+
+        anchors { bottom: toolbar.top; right: parent.right; rightMargin: Theme.horizontalPageMargin }
+        onClicked: overlay.details()
+     }
 
     Row {
         id: toolbar

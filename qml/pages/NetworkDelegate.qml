@@ -40,9 +40,9 @@ BackgroundItem {
 
             Image {
                 smooth: true
-                source :"qrc:///icons/contact.png"
-                width: Theme.iconSizeMedium
-                height: Theme.iconSizeMedium
+                source : "image://theme/icon-l-people" //"qrc:///icons/contact.png"
+                // width: Theme.iconSizeMedium
+                // height: Theme.iconSizeMedium
             }
 
             Column {

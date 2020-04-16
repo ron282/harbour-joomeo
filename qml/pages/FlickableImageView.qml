@@ -26,7 +26,9 @@ SlideshowView {
 
     delegate: Loader {
         readonly property url source: HttpRequests.getFileUrl(sessionId, model.albumId, model.fileId, "large")
-        readonly property bool isImage: true // model.mimeType.indexOf("image/") == 0
+        readonly property string albumId : model.albumId
+        readonly property string fileId : model.fileId
+        readonly property bool isImage: model.mimeType.indexOf("image/") === 0
         readonly property bool isCurrentItem: PathView.isCurrentItem
         readonly property bool error: item && item.error
         readonly property string fileName : model.fileName
@@ -37,6 +39,7 @@ SlideshowView {
         readonly property int fileHeight: model.height
         readonly property string fileDateShooting: model.dateShooting
         readonly property string fileLegend: model.legend
+        readonly property int nbComments: model.nbComments
 
         width: root.width
         height: root.height
@@ -77,13 +80,17 @@ SlideshowView {
         }
         onDetails: {
             pageStack.push("DetailsPage.qml",
-                                   { fileNameValue: currentItem.fileName,
+                                   { sessionId: root.sessionId,
+                                     sessionType: root.sessionType,
+                                     albumId: currentItem.albumId,
+                                     fileId: currentItem.fileId,
+                                     fileNameValue: currentItem.fileName,
                                      ratingValue: currentItem.fileRating,
                                      typeValue: currentItem.fileType,
                                      sizeValue: currentItem.fileSize,
                                      widthValue: currentItem.fileWidth,
                                      heightValue: currentItem.fileHeight,
-                                     dateShootingValue: currentItem.fileDateShooting})
+                                     dateShootingValue: currentItem.fileDateShooting })
         }
 
         source: currentItem ? currentItem.source : ""
@@ -91,6 +98,7 @@ SlideshowView {
         error: currentItem && currentItem.error
         deletingAllowed: false // sessionType === 0
         legend: currentItem ? currentItem.fileLegend : ""
+        commentsVisible: currentItem.nbComments > 0
 
         anchors.fill: parent
         z: 100

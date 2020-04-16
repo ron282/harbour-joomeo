@@ -346,7 +346,7 @@ function joomeoGetNumberOfFiles(sessionid, albumid, result, reject)
          )
 }
 
-function joomeoGetCommentList(sessionid, albumid, fileid)
+function joomeoGetCommentList(sessionid, albumid, fileid, resolve, reject)
 {
     ajax( "<?xml version=\"1.0\" encoding=\"UTF-8\"?><methodCall>"+
          "<methodName>joomeo.user.file.getCommentList</methodName><params><param><value><struct>"+
@@ -355,12 +355,8 @@ function joomeoGetCommentList(sessionid, albumid, fileid)
          "￼<member><name>fileid</name> <value><string>"+fileid+"</string></value></member>"+
          "<member><name>albumid</name><value><string>"+albumid+"</string></value></member>"+
          "</struct></value></param></params></methodCall>",
-         function resolve () {
-             xmlCommentData = req.responseText
-         },
-         function reject () {
-             NetworkErrorDialog.open()
-         }
+         resolve ,
+         reject
          )
 }
 

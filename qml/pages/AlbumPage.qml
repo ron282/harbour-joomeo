@@ -94,6 +94,7 @@ Page {
             text: xmlFilesModel.status == XmlListModel.Ready ? qsTr("Empty") : qsTr("Retrieving data...")
         }
 
+
         readonly property real pageHeight: Math.ceil(idAlbumPage.height + pageStack.panelSize)
 
         readonly property Item contextMenu: currentItem ? currentItem._menuItem : null
@@ -197,9 +198,6 @@ Page {
             AlbumDelegate {
                 id: albumDelegateId
                 sessionId: idAlbumPage.sessionId
-                fileId: model.fileId
-                rating: model.rating
-                nbComments: model.nbComments
 
                 width: idGridPhotos.cellWidth
                 height: idGridPhotos.cellHeight

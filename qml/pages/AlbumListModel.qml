@@ -19,7 +19,7 @@ XmlListModel {
     XmlRole { name: "allowDownload"; query: "member[name='allowdownload']/value/int/number()" }
     XmlRole { name: "allowsEndComments"; query: "member[name='allowsendcomments']/value/int/number()" }
     XmlRole { name: "legend"; query: "member[name='legend']/value/string/string()" }
-    XmlRole { name: "nbComments"; query: "member[name='nbComments']/value/string/string()" }
+    XmlRole { name: "nbComments"; query: "member[name='nbComments']/value/int/number()" }
     XmlRole { name: "albumId"; query: "member[name='albumid']/value/string/string()" }
 
 }

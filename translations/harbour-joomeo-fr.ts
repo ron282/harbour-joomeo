@@ -58,74 +58,107 @@ This is not an official application.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AlbumPage.qml" line="151"/>
+        <location filename="../qml/pages/AlbumPage.qml" line="152"/>
         <source>Save in gallery</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AlbumPage.qml" line="159"/>
+        <location filename="../qml/pages/AlbumPage.qml" line="160"/>
         <source>Delete</source>
         <translation type="unfinished">Supprimer</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AlbumPage.qml" line="162"/>
+        <location filename="../qml/pages/AlbumPage.qml" line="163"/>
         <source>Delete album</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AlbumPage.qml" line="249"/>
-        <location filename="../qml/pages/AlbumPage.qml" line="275"/>
-        <location filename="../qml/pages/AlbumPage.qml" line="283"/>
+        <location filename="../qml/pages/AlbumPage.qml" line="247"/>
+        <location filename="../qml/pages/AlbumPage.qml" line="273"/>
+        <location filename="../qml/pages/AlbumPage.qml" line="281"/>
         <source>Network problem
 Check your connection</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
+    <name>CommentDelegate</name>
+    <message>
+        <location filename="../qml/pages/CommentDelegate.qml" line="20"/>
+        <source>dd MMM yyyy</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DetailsPage</name>
     <message>
-        <location filename="../qml/pages/DetailsPage.qml" line="29"/>
+        <location filename="../qml/pages/DetailsPage.qml" line="49"/>
         <source>Details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/DetailsPage.qml" line="33"/>
+        <location filename="../qml/pages/DetailsPage.qml" line="53"/>
         <source>File name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/DetailsPage.qml" line="38"/>
+        <location filename="../qml/pages/DetailsPage.qml" line="59"/>
         <source>Rating</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/DetailsPage.qml" line="43"/>
-        <source>Type</source>
+        <location filename="../qml/pages/DetailsPage.qml" line="65"/>
+        <source>File type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/DetailsPage.qml" line="48"/>
-        <source>Size</source>
+        <location filename="../qml/pages/DetailsPage.qml" line="72"/>
+        <source>%1 bytes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/DetailsPage.qml" line="53"/>
-        <source>Width</source>
+        <location filename="../qml/pages/DetailsPage.qml" line="71"/>
+        <source>File size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/DetailsPage.qml" line="58"/>
-        <source>Height</source>
+        <location filename="../qml/pages/DetailsPage.qml" line="78"/>
+        <source>%1 x %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/DetailsPage.qml" line="63"/>
-        <source>Date shooting</source>
+        <location filename="../qml/pages/DetailsPage.qml" line="77"/>
+        <source>Resolution</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/DetailsPage.qml" line="64"/>
+        <location filename="../qml/pages/DetailsPage.qml" line="83"/>
+        <source>Date taken</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DetailsPage.qml" line="84"/>
         <source>dd MMM yyyy hh:mm:ss</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DetailsPage.qml" line="99"/>
+        <source>Comments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DetailsPage.qml" line="106"/>
+        <source>No new comment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DetailsPage.qml" line="106"/>
+        <source>Retrieving comments...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DetailsPage.qml" line="163"/>
+        <source>New comment</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -140,7 +173,7 @@ Check your connection</source>
 <context>
     <name>FlickableImageView</name>
     <message>
-        <location filename="../qml/pages/FlickableImageView.qml" line="73"/>
+        <location filename="../qml/pages/FlickableImageView.qml" line="76"/>
         <source>Delete</source>
         <translation type="unfinished">Supprimer</translation>
     </message>

@@ -6,11 +6,6 @@ import "HttpRequests.js" as HttpRequests
 
 BackgroundItem {
     property string sessionId
-    property string fileId
-    property string fileName
-    property int rating
-    property string nbComments
-
     readonly property bool showContextMenu: down && _pressAndHold
     property bool _pressAndHold
 
@@ -62,38 +57,47 @@ BackgroundItem {
     Rectangle {
         id: idDetails
         width: parent.width
-        height: 20
+        height: messageIcon.height
+        anchors.bottom: idAlbumDelegateImage.bottom
 
         opacity: 0.3
         color: "black"
-        visible: parseInt(nbComments) > 0 || parseInt(rating) > 0
+        visible: (nbComments > 0) || (rating > 0)
     }
 
     Image {
-        source: "qrc:///icons/comments.png"
-        visible: parseInt(nbComments) > 0
-        x: 2
-        anchors.verticalCenter: idDetails.verticalCenter
+        id: ratingIcon1
+        source: "image://theme/icon-s-favorite"
+        visible: rating > 2
+        anchors { verticalCenter: idDetails.verticalCenter; left:parent.left; leftMargin: 2 }
+    }
+    Image {
+        id: ratingIcon2
+        source: "image://theme/icon-s-favorite"
+        visible: rating > 6
+        anchors { verticalCenter: idDetails.verticalCenter; left:ratingIcon1.right; leftMargin: 2 }
+    }
+    Image {
+        id: ratingIcon3
+        source: "image://theme/icon-s-favorite"
+        visible: rating > 10
+        anchors { verticalCenter: idDetails.verticalCenter; left:ratingIcon2.right; leftMargin: 2 }
+    }
+    Image {
+        id: ratingIcon4
+        source: "image://theme/icon-s-favorite"
+        visible: rating > 14
+        anchors { verticalCenter: idDetails.verticalCenter; left:ratingIcon3.right; leftMargin: 2 }
     }
 
     Image {
-        id: idRating
-        source: "qrc:///icons/rating.png"
-        visible: rating > 0
-        anchors.verticalCenter: idDetails.verticalCenter
-        anchors.right:parent.right
+        id: messageIcon
+        source: "image://theme/icon-m-activity-messaging"
+        visible: nbComments > 0
+        height: ratingIcon1.height
+        fillMode: Image.PreserveAspectFit
+        anchors { right: parent.right; rightMargin: 2; verticalCenter: idDetails.verticalCenter }
     }
-
-    Text {
-        text: Math.round(rating/4)
-        visible: rating > 0
-        anchors.verticalCenter: idDetails.verticalCenter
-        anchors.verticalCenterOffset: -1
-        anchors.right: idRating.left
-        font.pixelSize: 18
-        color: "#cccccc"
-    }
-
     Rectangle {
         id: mask
         color: "black"
