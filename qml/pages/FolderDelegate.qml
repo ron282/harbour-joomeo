@@ -50,19 +50,20 @@ ListItem {
     }
 
     Column {
+        id: columnTexts
         Text {
             id: textAlbumName
             x: Theme.paddingLarge
             text: idFolderDelegate.elementLabel
             wrapMode: Text.WordWrap
             font.pixelSize: Theme.fontSizeMedium
-            color: "white"
+            color: Theme.primaryColor
         }
         Text {
              id: textNbFiles
              x: Theme.paddingLarge
              font.pixelSize: Theme.fontSizeTiny
-            color: "white"
+            color: Theme.primaryColor
         }
     }
 

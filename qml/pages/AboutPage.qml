@@ -13,9 +13,6 @@ Page {
         contentHeight: aboutColumn.height
 
         Column {
-            PageHeader {
-                title: qsTr("About Joomeo")
-            }
 
             id: aboutColumn
             anchors {
@@ -27,6 +24,9 @@ Page {
             height: childrenRect.height
             spacing: Theme.paddingLarge
 
+            PageHeader {
+                title: qsTr("About Joomeo")
+            }
 
             Label {
                 wrapMode: Text.WordWrap

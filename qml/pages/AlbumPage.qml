@@ -16,6 +16,7 @@ Page {
     property string albumId
     property string albumLabel
     property bool uploading: false
+    property var shareList : []
 
     function jumpToIndex(index) {
         if (index < idGridPhotos.columnCount)
@@ -27,6 +28,10 @@ Page {
 
     // Grid with photos. Displayed in columns in portrait mode
 
+    ContactAccessListModel {
+        id: xmlAllowedContactsListModel
+    }
+
     SilicaGridView {
         id: idGridPhotos
 
@@ -37,7 +42,7 @@ Page {
             flickable: idGridPhotos
         }
 
-        PullDownMenu {   
+        PullDownMenu {
             MenuItem {
                 text: qsTr("My albums")
                 visible: sessionType == 1
@@ -49,8 +54,7 @@ Page {
                 visible: sessionType === 0
                 text: qsTr("Upload file")
                 onClicked: {
-                    // This is the only to display a file picker compatible with
-                    // Harbour requirements
+                    // This is the only to display a file picker compatible with Harbour requirements
                     var imagePicker = pageStack.push(imagePickerPage);
 
                     imagePicker.selectedContentChanged.connect(function() {
@@ -61,11 +65,14 @@ Page {
                 }
             }
             MenuItem {
-                visible: false // Not yet implemented
-                text: qsTr("Play Slideshow")
+                text: qsTr("Edit Sharing")
+                visible: sessionType == 0
                 onClicked: {
-                    idGridPhotos.currentIndex = 0
-                    pageStack.push(idZoomedPageContainer, {slideShow : true })
+                    pageStack.push(Qt.resolvedUrl("AlbumSharingPage.qml"),
+                                   { sessionId: sessionId,
+                                     albumId: albumId,
+                                     albumName: albumLabel,
+                                     accessList: xmlAllowedContactsListModel});
                 }
             }
         }
@@ -75,12 +82,34 @@ Page {
             title: idAlbumPage.albumLabel
 
             HarbourBadge {
+                id: badge
                 anchors {
                     left: header.extraContent.left
                     verticalCenter: header.extraContent.verticalCenter
                 }
                 maxWidth: header.extraContent.width
                 text: xmlFilesModel.count ? xmlFilesModel.count : ""
+            }
+            Icon {
+                id: iconShare
+                anchors {
+                    left: badge.right
+                    leftMargin: Theme.itemSizeExtraSmall/4
+                    verticalCenter: header.extraContent.verticalCenter
+                }
+                height: Theme.itemSizeExtraSmall/2
+                fillMode: Image.PreserveAspectFit
+                visible: xmlFilesModel.count & xmlAllowedContactsListModel.count
+                source: "image://theme/icon-m-share"
+            }
+            Label {
+                anchors {
+                    left: iconShare.right
+                    verticalCenter: header.extraContent.verticalCenter
+                }
+                font.pixelSize: Theme.fontSizeSmall
+                visible: xmlFilesModel.count & xmlAllowedContactsListModel.count
+                text: xmlAllowedContactsListModel.count
             }
         }
 
@@ -177,12 +206,12 @@ Page {
                                                                                                                                {message : qsTr("Network problem\nCheck your connection")})
 
                                                                                                             });*/
-                                                                         xmlFilesModel.reload()
+                                                                            xmlFilesModel.reload()
 
                                                                         },
                                                                         function reject() {
-                                                                        xmlFilesModel.reload()
-                                                                        //    pageStack.push(Qt.resolvedUrl("ErrorDialog.qml"), {message : qsTr("Network problem\nCheck your connection")})
+                                                                            xmlFilesModel.reload()
+                                                                            //    pageStack.push(Qt.resolvedUrl("ErrorDialog.qml"), {message : qsTr("Network problem\nCheck your connection")})
                                                                         })
                                       })
                     }
@@ -237,16 +266,27 @@ Page {
     }
 
     onStatusChanged: {
-        if (xmlFilesModel.xml == "") {
-                HttpRequests.joomeoGetFilesList(sessionId,
-                                                albumId,
-                                                function resolve (req){
-                                                    xmlFilesModel.xml = req.responseText
-                                                },
-                                                function reject() {
-                                                    pageStack.push(Qt.resolvedUrl("ErrorDialog.qml"), {message : qsTr("Network problem\nCheck your connection")})
-                                                })
+        if(status == PageStatus.Activating) {
+            HttpRequests.joomeoGetAllowedContactAccessList(sessionId, albumId,
+                                                           function (req) {
+                                                               xmlAllowedContactsListModel.xml = req.responseText;
 
+                                                               if (xmlFilesModel.xml == "") {
+                                                                   HttpRequests.joomeoGetFilesList(sessionId,
+                                                                                                   albumId,
+                                                                                                   function resolve (req){
+                                                                                                       xmlFilesModel.xml = req.responseText
+
+                                                                                                   },
+                                                                                                   function reject() {
+                                                                                                       pageStack.push(Qt.resolvedUrl("ErrorDialog.qml"), {message : qsTr("Network problem\nCheck your connection")})
+                                                                                                   })
+
+                                                               }
+                                                           },
+                                                           function () {
+                                                               // Error
+                                                           } )
         }
     }
 
@@ -299,8 +339,11 @@ Page {
         target: fileDownloader
 
         onFileDownloaded: {
-            console.log("download file finished")
         }
+    }
+
+    function updateContactAccessList () {
+
     }
 }
 

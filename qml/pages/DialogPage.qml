@@ -10,7 +10,6 @@ Dialog {
     property string caption
     property string header
 
-
     Column {
         width: parent.width
 

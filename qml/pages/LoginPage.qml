@@ -28,12 +28,12 @@ Page {
         }
 
 
+        PageHeader { title: "Joomeo" }
+
         Column {
             id: idColumn
-            anchors { left: parent.left; right: parent.right }
+            anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter }
             spacing: Theme.paddingLarge
-
-            PageHeader { title: "Joomeo" }
 
             TextField {
                 id: inputSpace
