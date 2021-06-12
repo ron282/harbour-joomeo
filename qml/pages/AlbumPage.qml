@@ -267,9 +267,9 @@ Page {
 
     onStatusChanged: {
         if(status == PageStatus.Activating) {
-            HttpRequests.joomeoGetAllowedContactAccessList(sessionId, albumId,
+                HttpRequests.joomeoGetAllowedContactAccessList(sessionId, albumId,
                                                            function (req) {
-                                                               xmlAllowedContactsListModel.xml = req.responseText;
+                                                               xmlAllowedContactsListModel.xml = req.responseText
 
                                                                if (xmlFilesModel.xml == "") {
                                                                    HttpRequests.joomeoGetFilesList(sessionId,
@@ -285,8 +285,22 @@ Page {
                                                                }
                                                            },
                                                            function () {
-                                                               // Error
+                                                               xmlAllowedContactsListModel.xml = ""
+
+                                                               if (xmlFilesModel.xml == "") {
+                                                                   HttpRequests.joomeoGetFilesList(sessionId,
+                                                                                                   albumId,
+                                                                                                   function resolve (req){
+                                                                                                       xmlFilesModel.xml = req.responseText
+
+                                                                                                   },
+                                                                                                   function reject() {
+                                                                                                       pageStack.push(Qt.resolvedUrl("ErrorDialog.qml"), {message : qsTr("Network problem\nCheck your connection")})
+                                                                                                   })
+
+                                                               }
                                                            } )
+
         }
     }
 

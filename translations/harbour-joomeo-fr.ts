@@ -4,7 +4,7 @@
 <context>
     <name>AboutPage</name>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="17"/>
+        <location filename="../qml/pages/AboutPage.qml" line="28"/>
         <source>About Joomeo</source>
         <translation type="unfinished"></translation>
     </message>
@@ -33,51 +33,90 @@ This is not an official application.</source>
 <context>
     <name>AlbumPage</name>
     <message>
-        <location filename="../qml/pages/AlbumPage.qml" line="42"/>
+        <location filename="../qml/pages/AlbumPage.qml" line="47"/>
         <source>My albums</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AlbumPage.qml" line="50"/>
+        <location filename="../qml/pages/AlbumPage.qml" line="55"/>
         <source>Upload file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AlbumPage.qml" line="65"/>
-        <source>Play Slideshow</source>
+        <location filename="../qml/pages/AlbumPage.qml" line="68"/>
+        <source>Edit Sharing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AlbumPage.qml" line="94"/>
+        <location filename="../qml/pages/AlbumPage.qml" line="123"/>
         <source>Empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AlbumPage.qml" line="94"/>
+        <location filename="../qml/pages/AlbumPage.qml" line="123"/>
         <source>Retrieving data...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AlbumPage.qml" line="152"/>
+        <location filename="../qml/pages/AlbumPage.qml" line="181"/>
         <source>Save in gallery</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AlbumPage.qml" line="160"/>
+        <location filename="../qml/pages/AlbumPage.qml" line="189"/>
         <source>Delete</source>
         <translation type="unfinished">Supprimer</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AlbumPage.qml" line="163"/>
+        <location filename="../qml/pages/AlbumPage.qml" line="192"/>
         <source>Delete album</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AlbumPage.qml" line="247"/>
-        <location filename="../qml/pages/AlbumPage.qml" line="273"/>
-        <location filename="../qml/pages/AlbumPage.qml" line="281"/>
+        <location filename="../qml/pages/AlbumPage.qml" line="282"/>
+        <location filename="../qml/pages/AlbumPage.qml" line="298"/>
+        <location filename="../qml/pages/AlbumPage.qml" line="327"/>
+        <location filename="../qml/pages/AlbumPage.qml" line="335"/>
         <source>Network problem
 Check your connection</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AlbumSharingPage</name>
+    <message>
+        <location filename="../qml/pages/AlbumSharingPage.qml" line="27"/>
+        <source>Unselect all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AlbumSharingPage.qml" line="36"/>
+        <source>Sharing of %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AlbumSharingPage.qml" line="44"/>
+        <source>View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AlbumSharingPage.qml" line="45"/>
+        <source>Always enabled for selected contacts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AlbumSharingPage.qml" line="52"/>
+        <source>Upload</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AlbumSharingPage.qml" line="53"/>
+        <source>Upload content in this album</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AlbumSharingPage.qml" line="60"/>
+        <source>Authorized Contacts</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -165,8 +204,13 @@ Check your connection</source>
 <context>
     <name>ErrorDialog</name>
     <message>
-        <location filename="../qml/pages/ErrorDialog.qml" line="18"/>
+        <location filename="../qml/pages/ErrorDialog.qml" line="12"/>
         <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ErrorDialog.qml" line="25"/>
+        <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -181,66 +225,66 @@ Check your connection</source>
 <context>
     <name>FolderDelegate</name>
     <message>
-        <location filename="../qml/pages/FolderDelegate.qml" line="78"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="79"/>
         <source>%1 photos</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FolderDelegate.qml" line="81"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="82"/>
         <source>%1 photo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FolderDelegate.qml" line="86"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="87"/>
         <source>? photo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FolderDelegate.qml" line="92"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="93"/>
         <source>No photo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FolderDelegate.qml" line="108"/>
-        <location filename="../qml/pages/FolderDelegate.qml" line="136"/>
-        <location filename="../qml/pages/FolderDelegate.qml" line="161"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="109"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="137"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="162"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FolderDelegate.qml" line="113"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="114"/>
         <source>Folder name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FolderDelegate.qml" line="114"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="115"/>
         <source>Rename folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FolderDelegate.qml" line="125"/>
-        <location filename="../qml/pages/FolderDelegate.qml" line="148"/>
-        <location filename="../qml/pages/FolderDelegate.qml" line="154"/>
-        <location filename="../qml/pages/FolderDelegate.qml" line="178"/>
-        <location filename="../qml/pages/FolderDelegate.qml" line="204"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="126"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="149"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="155"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="179"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="205"/>
         <source>Network problem
 Check your connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FolderDelegate.qml" line="133"/>
-        <location filename="../qml/pages/FolderDelegate.qml" line="185"/>
-        <location filename="../qml/pages/FolderDelegate.qml" line="188"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="134"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="186"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="189"/>
         <source>Delete</source>
         <translation type="unfinished">Supprimer</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FolderDelegate.qml" line="166"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="167"/>
         <source>Album name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FolderDelegate.qml" line="167"/>
+        <location filename="../qml/pages/FolderDelegate.qml" line="168"/>
         <source>Rename Album</source>
         <translation type="unfinished"></translation>
     </message>

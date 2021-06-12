@@ -19,11 +19,6 @@ var NETWORK_TIMEOUT = 10000;  // milliseconds
 
 var req;
 
-/*var spacename = "";
-var username = "";
-var password = "";
-*/
-
 function getFileUrl(sessionId, albumId, fileId, fileType) {
     return phpPoint+"?apikey="+apiKey+"&sessionid="+sessionId+"&albumid="+albumId+"&fileid="+fileId+"&type="+fileType+"&rotation=0"
 }
@@ -33,31 +28,21 @@ function getUploadUrl(sessionId) {
 }
 
 function ajax (data, resolve, reject) {
-
     req = new XMLHttpRequest()
     req.open('POST', apiPoint, true)
     req.onreadystatechange = function (aEvt) {
         if (req.readyState === XMLHttpRequest.DONE) {
             if(req.status === 200) {
-                if(req.responseText.indexOf("<methodResponse>")>0)
+                if(req.responseText.indexOf("<params>") > 0 )
                 {
                     resolve(req)
                 }
-                else if(node.nodeName === "fault")
-                {
-                    var node;
-                    var res = []
-                    node = getFirstChildNode(req.responseXML.documentElement)
-                    node = getChildNode(node, "value")
-                    res = parseValue(node)
-                    reject(res['faultString'])
-                }
-                else {
-                    reject('unknown syntax')
+                else  {
+                    reject("error")
                 }
             }
             else {
-                reject(req.status)
+                reject("HTTP error:"+req.status)
             }
         }
     };
@@ -147,7 +132,7 @@ function parseValue(value) {
 
     var type = getFirstChildNode(value);
 
-    if (type == null)
+    if (type === null)
         return "";
 
     switch (type.nodeName) {
@@ -255,7 +240,7 @@ function joomeoGetFilesList(sessionid, albumid, resolve, reject)
     ajax("<?xml version=\"1.0\" encoding=\"UTF-8\"?><methodCall>"+
          "<methodName>joomeo.user.album.getFilesList</methodName><params><param><value><struct>"+
          "<member><name>apikey</name><value><string>"+apiKey+"</string></value> </member>"+
-         "￼<member><name>sessionid</name> <value><string>"+sessionid+"</string></value></member>"+
+         "￼<member><name>sessionid</name><value><string>"+sessionid+"</string></value></member>"+
          "<member><name>albumid</name><value><string>"+albumid+"</string></value></member>"+
          "<member><name>orderby</name><value><string>date</string></value></member>"+
          "<member><name>random</name><value><int>0</int></value> </member>"+
@@ -265,6 +250,59 @@ function joomeoGetFilesList(sessionid, albumid, resolve, reject)
          );
 }
 
+function joomeoGetAllowedContactAccessList(sessionid, albumid, resolve, reject)
+{
+    ajax("<?xml version=\"1.0\" encoding=\"UTF-8\"?><methodCall>"+
+         "<methodName>joomeo.user.album.getAllowedContactAccessList</methodName><params><param><value><struct>"+
+         "<member><name>apikey</name><value><string>"+apiKey+"</string></value> </member>"+
+         "￼<member><name>sessionid</name><value><string>"+sessionid+"</string></value></member>"+
+         "<member><name>albumid</name><value><string>"+albumid+"</string></value></member>"+
+         "</struct></value></param></params></methodCall>",
+         resolve,
+         reject
+         );
+}
+
+function joomeoGetContactList(sessionid,  resolve, reject)
+{
+    ajax("<?xml version=\"1.0\" encoding=\"UTF-8\"?><methodCall>"+
+         "<methodName>joomeo.user.getContactList</methodName><params><param><value><struct>"+
+         "<member><name>apikey</name><value><string>"+apiKey+"</string></value> </member>"+
+         "￼<member><name>sessionid</name><value><string>"+sessionid+"</string></value></member>"+
+         "</struct></value></param></params></methodCall>",
+         resolve,
+         reject
+         );
+}
+
+function joomeoAllowContactAccess(sessionid, albumid, contactid, allowupload, resolve, reject)
+{
+    ajax("<?xml version=\"1.0\" encoding=\"UTF-8\"?><methodCall>"+
+         "<methodName>joomeo.user.album.allowContactAccess</methodName><params><param><value><struct>"+
+         "<member><name>apikey</name><value><string>"+apiKey+"</string></value></member>"+
+         "￼<member><name>sessionid</name><value><string>"+sessionid+"</string></value></member>"+
+         "￼<member><name>albumid</name><value><string>"+albumid+"</string></value></member>"+
+         "<member><name>contactid</name><value><string>"+contactid+"</string></value></member>"+
+         "<member><name>allowupload</name><value><int>"+allowupload+"</int></value></member>"+
+         "</struct></value></param></params></methodCall>",
+         resolve,
+         reject
+         );
+}
+
+function joomeoRemoveContactAccess(sessionid, albumid, contactid, resolve, reject)
+{
+    ajax("<?xml version=\"1.0\" encoding=\"UTF-8\"?><methodCall>"+
+         "<methodName>joomeo.user.album.removeContactAccess</methodName><params><param><value><struct>"+
+         "<member><name>apikey</name><value><string>"+apiKey+"</string></value> </member>"+
+         "￼<member><name>sessionid</name><value><string>"+sessionid+"</string></value></member>"+
+         "￼<member><name>albumid</name><value><string>"+albumid+"</string></value></member>"+
+         "<member><name>contactid</name><value><string>"+contactid+"</string></value></member>"+
+         "</struct></value></param></params></methodCall>",
+         resolve,
+         reject
+         );
+}
 
 function joomeoGetNetwork(sessionid, resolve, reject)
 {
